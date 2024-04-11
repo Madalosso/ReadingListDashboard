@@ -1,5 +1,10 @@
-console.log("This is the background page.");
-console.log("Put the background scripts here.");
+// READ LATER
+// READ
+// FAVORITE - STASH
+
+// Maybe another set of cmds
+// 1 Add/remove from list
+// 2 advance reading status (unread -> read -> favorite)
 
 chrome.commands.onCommand.addListener(async (command) => {
   console.log(command);
@@ -12,31 +17,33 @@ chrome.commands.onCommand.addListener(async (command) => {
   if (command === "add-or-toggle-reading-list") {
     console.log("adding to read list");
     chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
-      console.log("Active tab", tabs[0]);
-      console.log(`Tab title: ${tabs[0].title} and url: ${tabs[0].url}`);
       const { url, title } = tabs[0];
 
       const items = await chrome.readingList.query({ url });
-      console.log("items", items);
+      if (items.length > 0) {
+        // should probably be 1
+        // TODO: Check how query parameters interfere here.
+        // ex: https://developer.chrome.com/docs/extensions/reference/api/readingList
+        // and https://developer.chrome.com/docs/extensions/reference/api/readingList#mark-item-read
+        // We should probably ignore the query params
 
-      // try {
-      //   chrome.readingList.addEntry({
-      //     title,
-      //     url,
-      //     hasBeenRead: false,
-      //   });
-      // } catch (err) {
-      //   console.debug(err);
-      //   console.log(err);
-      //   if (err == "Duplicate URL") {
-      //     chrome.readingList.updateEntry({ url: tabs[0].url, hasBeenRead: true });
-      //   }
-      // }
-      console.log("added to reading list");
+        const item = items[0];
+        if (item.hasBeenRead) {
+          // chrome.readingList.removeEntry({ url });
+          // TODO: Add to bookmarks folder (extension)
+          return;
+        }
+        chrome.readingList.updateEntry({ url, hasBeenRead: true });
+        // console.log("Read");
+        return;
+      }
+
+      chrome.readingList.addEntry({
+        title,
+        url,
+        hasBeenRead: false,
+      });
+      // console.log("Read later");
     });
   }
 });
-
-// READ LATER
-// READ
-// FAVORITE - STASH
