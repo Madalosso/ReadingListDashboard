@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import logo from "../../assets/img/logo.svg";
 import Card from "../../containers/Card/Card";
 import ReadList from "../../containers/ReadList";
+import CompletedList from "../../containers/CompletedList";
 import PeriodStats from "../../containers/Card/Stats";
 import useReadingList from "../../hooks/useReads";
 
@@ -13,7 +14,7 @@ const Newtab = () => {
       readingList
         .filter((item) => !item.hasBeenRead)
         .sort((a, b) => b.creationTime - a.creationTime)
-        .slice(0, 5),
+        .slice(0, 4),
     [readingList]
   );
   const oldest = useMemo(
@@ -21,7 +22,15 @@ const Newtab = () => {
       readingList
         .filter((item) => !item.hasBeenRead)
         .sort((a, b) => a.creationTime - b.creationTime)
-        .slice(0, 5),
+        .slice(0, 4),
+    [readingList]
+  );
+
+  const readToday = useMemo(
+    () =>
+      readingList.filter(
+        (item) => item.hasBeenRead && new Date(item.lastUpdateTime).toDateString() === new Date().toDateString()
+      ),
     [readingList]
   );
 
@@ -41,6 +50,10 @@ const Newtab = () => {
 
         <Card title={`Pending - Oldest Entries`}>
           <ReadList items={oldest} />
+        </Card>
+
+        <Card title={`Completed today`}>
+          <CompletedList items={readToday} />
         </Card>
       </section>
     </div>
