@@ -17,7 +17,7 @@ chrome.commands.onCommand.addListener(async (command) => {
   if (command === "add-or-toggle-reading-list") {
     console.log("adding to read list");
     chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
-      const { url, title } = tabs[0];
+      const { id, url, title } = tabs[0];
 
       const items = await chrome.readingList.query({ url });
       if (items.length > 0) {
@@ -43,7 +43,8 @@ chrome.commands.onCommand.addListener(async (command) => {
         url,
         hasBeenRead: false,
       });
-      // console.log("Read later");
+      console.log("Added to reading list, showing tooltip (id=%s)", id);
+      chrome.tabs.sendMessage(id, { command: "show-tooltip" });
     });
   }
 });
@@ -51,8 +52,11 @@ chrome.commands.onCommand.addListener(async (command) => {
 // extension icon click handler
 chrome.action.onClicked.addListener((tab) => {
   console.log("action.onClicked");
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    files: ["contentScript.bundle.js"],
+  const { url, title } = tab;
+  chrome.readingList.addEntry({
+    title,
+    url,
+    hasBeenRead: false,
   });
+  chrome.tabs.sendMessage(tab.id, { command: "show-tooltip" });
 });

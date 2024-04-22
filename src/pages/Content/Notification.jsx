@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import "../../assets/styles/tailwind.css";
 import icon from "../../assets/img/icon-128.png";
 
 // import { Transition } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 
+export const showNotification = () => {
+  const tooltipElement = document.createElement("div");
+  document.body.appendChild(tooltipElement);
+  ReactDOM.render(<CardComponent />, tooltipElement);
+};
+
 const Popup = () => {
   useEffect(() => {
+    console.log("Popup component mounted");
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       console.log("Active tab", tabs[0]);
       console.log(`Tab title: ${tabs[0].title} and url: ${tabs[0].url}`);
@@ -45,7 +54,7 @@ function CardComponent() {
       {/* Global notification live region, render this permanently at the end of the document */}
       <div
         aria-live="assertive"
-        className="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6"
+        className="pointer-events-none z-50 fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6"
       >
         <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
