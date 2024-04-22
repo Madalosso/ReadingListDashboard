@@ -5,6 +5,7 @@ import ReadList from "../../containers/ReadList";
 import CompletedList from "../../containers/CompletedList";
 import PeriodStats from "../../containers/Card/Stats";
 import useReadingList from "../../hooks/useReads";
+import Popup from "../Popup/Popup";
 
 const Newtab = () => {
   const { readingList, loading } = useReadingList();
@@ -55,6 +56,8 @@ const Newtab = () => {
         <Card title={`Completed today`}>
           <CompletedList items={readToday} />
         </Card>
+
+        <Popup />
       </section>
     </div>
   );

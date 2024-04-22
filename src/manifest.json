@@ -6,12 +6,16 @@
   "permissions": [
     "activeTab",
     "readingList",
-    "commands"
+    "commands",
+    "scripting"
   ],
   "background": { "service_worker": "background.bundle.js" },
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon-34.png"
+    "default_title": "Click to add to reading list",
+    "default_icon": {
+      "34":"icon-34.png",
+      "128":"icon-128.png"
+    }
   },
   "commands":{
     "toggle-reading-list": {

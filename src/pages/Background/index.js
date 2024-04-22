@@ -47,3 +47,12 @@ chrome.commands.onCommand.addListener(async (command) => {
     });
   }
 });
+
+// extension icon click handler
+chrome.action.onClicked.addListener((tab) => {
+  console.log("action.onClicked");
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    files: ["contentScript.bundle.js"],
+  });
+});
