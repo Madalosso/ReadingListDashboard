@@ -1,6 +1,28 @@
-<img src="src/assets/img/icon-128.png" width="64"/>
+# Reading List Dashboard
 
-# Tailwind React Chrome Extension Template (Tailwind 3, React 17 and Webpack 5)
+## Motivation
+
+This project was built to be a tool for the project author. Though useful to save potentially interesting content, the native "reading list" feature offered by chrome since version (XXX) can be easily miss-used and turned into a hoarder basement, by ever-accumulating new content which is never actually consumed.
+
+The project aims to boost the awareness of Reading List items by overriding the browser's newtab page and presenting a reading list dashboard with metrics and links to the stored content.
+
+By enhancing the awareness on the amount of Read/consume later items, I expect users to build a routine in which they actually consume the items, while also building a stronger filter towards which content is worth saving to read later. (Maybe it's "too cheap" to save content to be consumed later)
+
+## Target
+
+The target audience is procrastinators and/or hoarders of digital content. People that might have an inclination to "FOMO" and as result, indiscriminately store content to read later without actually planning to consume it.
+
+## Future work
+
+- (Future work): Feature to allow user to navigate through his saved items and re-evaluate if they should be kept/discarded. (Something like Slack's catch-up feature and MyMind's serendipity)
+- (Future work): YT watch later support
+- (Future work): Would be interesting to estimate the reading time of items and display it along with the item card.
+
+## Credits
+
+- This project was forked from https://github.com/yewsiang/tailwind-react-chrome-extension-template
+
+<!-- # Tailwind React Chrome Extension Template (Tailwind 3, React 17 and Webpack 5)
 
 ## Features
 
@@ -106,13 +128,13 @@ To this task this boilerplate import the file `./secrets.<THE-NODE_ENV>.js` on y
 _./secrets.development.js_
 
 ```js
-export default { key: '123' };
+export default { key: "123" };
 ```
 
 _./src/popup.js_
 
 ```js
-import secrets from 'secrets';
+import secrets from "secrets";
 ApiCall({ key: secrets.key });
 ```
 
@@ -121,9 +143,4 @@ ApiCall({ key: secrets.key });
 ## Resources:
 
 - [Webpack documentation](https://webpack.js.org/concepts/)
-- [Chrome Extension documentation](https://developer.chrome.com/extensions/getstarted)
-
-## Credits
-
-- Michael Xieyang Liu | [Website](https://lxieyang.github.io)
-- This boilerplate is largely derived from [lxieyang/chrome-extension-boilerplate-react](https://github.com/lxieyang/chrome-extension-boilerplate-react), which in turn is adapted from [samuelsimoes/chrome-extension-webpack-boilerplate](https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate).
+- [Chrome Extension documentation](https://developer.chrome.com/extensions/getstarted) -->

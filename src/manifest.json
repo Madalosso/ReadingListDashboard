@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "ReadList+",
+  "name": "Reading List Dashboard",
   "description": "A chrome extension to enhance the features of chrome reading list",
   "options_page": "options.html",
   "permissions": [

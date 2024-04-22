@@ -1,11 +1,11 @@
 {
-  "name": "Read Later +",
-  "version": "4.3.5",
+  "name": "Reading List Dashboard",
+  "version": "0.0.1",
   "description": "A chrome extension to enhance the features of chrome reading list",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yewsiang/tailwind-react-chrome-extension-template.git"
+    "url": "https://github.com/Madalosso/ReadingListDashboard.git"
   },
   "scripts": {
     "build": "node utils/build.js",
