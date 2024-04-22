@@ -2,11 +2,11 @@
 
 ## Motivation
 
-This project was built to be a tool for the project author. Though useful to save potentially interesting content, the native "reading list" feature offered by chrome since version (XXX) can be easily miss-used and turned into a hoarder basement, by ever-accumulating new content which is never actually consumed.
+This project was built to be a tool for the project author. Though useful to save potentially interesting content, the native "reading list" feature offered by Chrome since version (XXX) can be easily misused and turned into a hoarder basement by ever-accumulating new content which is never actually consumed.
 
 The project aims to boost the awareness of Reading List items by overriding the browser's newtab page and presenting a reading list dashboard with metrics and links to the stored content.
 
-By enhancing the awareness on the amount of Read/consume later items, I expect users to build a routine in which they actually consume the items, while also building a stronger filter towards which content is worth saving to read later. (Maybe it's "too cheap" to save content to be consumed later)
+By enhancing the awareness of the amount of Read/consumed later items, I expect users to build a routine in which they actually consume the items while also building a stronger filter toward which content is worth saving to read later. (Maybe it's "too cheap" to save content to be consumed later)
 
 ## Target
 
@@ -14,9 +14,13 @@ The target audience is procrastinators and/or hoarders of digital content. Peopl
 
 ## Future work
 
-- (Future work): Feature to allow user to navigate through his saved items and re-evaluate if they should be kept/discarded. (Something like Slack's catch-up feature and MyMind's serendipity)
+- (Future work): Feature to allow the user to navigate through his saved items and re-evaluate if they should be kept/discarded. (Something like Slack's catch-up feature and MyMind's serendipity)
 - (Future work): YT watch later support
-- (Future work): Would be interesting to estimate the reading time of items and display it along with the item card.
+- (Future work): It would be interesting to estimate the reading time of items and display it along with the item card.
+
+## Screenshots/Demo
+![Dashboard - newtab page](https://github.com/Madalosso/ReadingListDashboard/assets/7397747/8add27e3-9a76-4001-8c79-caed7dfaed4a)
+
 
 ## Credits
 
